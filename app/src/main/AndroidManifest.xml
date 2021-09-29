@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonArms">
         <activity
-            android:name=".SecondActivity"
+            android:name=".KeyboardListenerActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

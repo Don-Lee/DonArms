@@ -1,63 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ll_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_keyboard"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:text="键盘监听以及屏幕参数"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/tv_screen_params"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="屏幕相关参数"
-            android:lineHeight="24dp"
-            android:padding="12dp"
-            android:textSize="18sp" />
+    <Button
+        android:id="@+id/btn_anti_shake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防抖动/防连续点击"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_keyboard"/>
 
-        <Button
-            android:id="@+id/btn_dismiss_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="12dp"
-            android:text="重新打开MainActivity并隐藏底部bar"
-            android:textAllCaps="false" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/et"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="测试用的EditText"
-                android:padding="12dp"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/btn_dismiss_keyboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="隐藏键盘" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="键盘相关数据"
-            android:lineHeight="24dp"
-            android:padding="12dp"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
