@@ -24,4 +24,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_keyboard"/>
 
+    <Button
+        android:id="@+id/btn_event_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="键盘监听activity左上角的返回按钮会让此文案变化"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_anti_shake"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

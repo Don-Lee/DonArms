@@ -18,8 +18,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import cn.rjgc.commonlib.util.DisplayMetricsHolder;
+import cn.rjgc.commonlib.util.eventbus.LiveDataBus;
 import cn.rjgc.commonlib.util.keyboard.GlobalLayoutListener;
 import cn.rjgc.commonlib.util.keyboard.OnKeyboardChangedListener;
+import cn.rjgc.donarms.util.EventType;
 
 /**
  * @author Don
@@ -156,6 +158,8 @@ public class KeyboardListenerActivity extends AppCompatActivity implements OnKey
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                //刷新MainActivity按钮的文案
+                LiveDataBus.get().with(EventType.REFRESH_TEXT,Boolean.class).postValue(true);
                 finish();
         }
         return super.onOptionsItemSelected(item);

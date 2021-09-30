@@ -4,7 +4,7 @@ import android.view.View;
 
 /**
  * Date 2021/9/29
- *
+ * 防抖动监听（重写OnClickListener的onClick方法）
  * @author Don
  */
 public abstract class OnAntiShakeClickListener implements View.OnClickListener {
