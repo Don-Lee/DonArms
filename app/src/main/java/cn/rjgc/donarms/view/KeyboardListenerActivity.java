@@ -1,4 +1,4 @@
-package cn.rjgc.donarms;
+package cn.rjgc.donarms.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -21,6 +21,8 @@ import cn.rjgc.commonlib.util.DisplayMetricsHolder;
 import cn.rjgc.commonlib.util.eventbus.LiveDataBus;
 import cn.rjgc.commonlib.util.keyboard.GlobalLayoutListener;
 import cn.rjgc.commonlib.util.keyboard.OnKeyboardChangedListener;
+import cn.rjgc.donarms.MainActivity;
+import cn.rjgc.donarms.R;
 import cn.rjgc.donarms.util.EventType;
 
 /**

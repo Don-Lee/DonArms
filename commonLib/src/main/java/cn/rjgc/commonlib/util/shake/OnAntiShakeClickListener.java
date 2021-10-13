@@ -15,9 +15,9 @@ public abstract class OnAntiShakeClickListener implements View.OnClickListener {
     public void onClick(View v) {
         if (System.currentTimeMillis() - lastClickTime >= FILTER_TIMEM) {
             lastClickTime = System.currentTimeMillis();
-            onAntiShakeClick();
+            onAntiShakeClick(v);
         }
     }
 
-    public abstract void onAntiShakeClick();
+    public abstract void onAntiShakeClick(View v);
 }

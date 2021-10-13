@@ -33,4 +33,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_anti_shake"/>
 
+    <Button
+        android:id="@+id/btn_highlight_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="高亮搜索控件"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_event_bus"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

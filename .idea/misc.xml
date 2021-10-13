@@ -7,8 +7,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/drawable/shape_item_dropdown_border.xml" value="0.2774358974358974" />
+        <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/drawable/white_bg_corner5.xml" value="0.2774358974358974" />
+        <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/layout/activity_highlight_search.xml" value="0.16394927536231885" />
         <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/layout/activity_keyboard_listener.xml" value="0.13958333333333334" />
         <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/layout/activity_main.xml" value="0.17889492753623187" />
+        <entry key="..\:/Code/AS/Don/DonArms/app/src/main/res/layout/item_dropdown_view.xml" value="0.15942028985507245" />
+        <entry key="..\:/Users/Don/AppData/Local/Android/Sdk/platforms/android-30/data/res/layout/simple_dropdown_item_1line.xml" value="0.1375" />
       </map>
     </option>
   </component>

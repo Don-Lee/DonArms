@@ -10,6 +10,7 @@ import android.util.TypedValue;
 public class PixelUtil {
     /**
      * DIP to PX
+     * 需要先初始化DisplayMetricsHolder
      */
     public static float toPixelFromDIP(float value) {
         return TypedValue.applyDimension(
@@ -20,6 +21,7 @@ public class PixelUtil {
 
     /**
      * DIP to PX
+     * 需要先初始化DisplayMetricsHolder
      */
     public static float toPixelFromDIP(double value) {
         return toPixelFromDIP((float) value);
@@ -27,6 +29,7 @@ public class PixelUtil {
 
     /**
      * SP to PX
+     * 需要先初始化DisplayMetricsHolder
      */
     public static float toPixelFromSP(float value) {
         return TypedValue.applyDimension(
@@ -37,6 +40,7 @@ public class PixelUtil {
 
     /**
      * SP to PX
+     * 需要先初始化DisplayMetricsHolder
      */
     public static float toPixelFromSP(double value) {
         return toPixelFromSP((float) value);
@@ -44,6 +48,7 @@ public class PixelUtil {
 
     /**
      * PX to DP
+     * 需要先初始化DisplayMetricsHolder
      */
     public static float toDIPFromPixel(float value) {
         return value / DisplayMetricsHolder.getWindowDisplayMetrics().density;

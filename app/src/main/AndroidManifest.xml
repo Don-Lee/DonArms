@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonArms">
         <activity
-            android:name=".KeyboardListenerActivity"
+            android:name=".view.HighlightSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.KeyboardListenerActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
