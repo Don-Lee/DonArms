@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.rjgc.commonlib.util.DisplayMetricsHolder;
 import cn.rjgc.commonlib.util.PixelUtil;
@@ -24,6 +27,7 @@ import cn.rjgc.commonlib.util.eventbus.LiveDataBus;
 import cn.rjgc.commonlib.util.shake.OnAntiShakeClickListener;
 import cn.rjgc.donarms.R;
 import cn.rjgc.donarms.adapter.AutoCompleteTextAdapter;
+import cn.rjgc.donarms.bean.OilStationBean;
 import cn.rjgc.donarms.databinding.ActivityHighlightSearchBinding;
 import cn.rjgc.donarms.util.EventType;
 
@@ -33,29 +37,32 @@ import cn.rjgc.donarms.util.EventType;
 public class HighlightSearchActivity extends AppCompatActivity {
     private ActivityHighlightSearchBinding binding;
     private AutoCompleteTextAdapter adapter;
-    String[] mdata = new String[]{
+    /*String[] mdata = new String[]{
             "济南", "青岛", "山东济南", "山东青岛", "中国", "广州", "北京", "上海",
             "济南1", "青岛1", "山东济南1", "山东青岛1", "中国1", "广州1", "北京1", "上海1"
-    };
+    };*/
+
+    private List<OilStationBean> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHighlightSearchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        initData();
         DisplayMetricsHolder.initDisplayMetricsIfNotInitialized(getApplicationContext());
         //最小值为1，表示输入几个字后开始匹配
         binding.actv.setThreshold(1);
         binding.actv.setDropDownVerticalOffset((int) PixelUtil.toPixelFromDIP(8));
         binding.actv.setDropDownBackgroundResource(R.drawable.white_bg_corner5);
-        adapter = new AutoCompleteTextAdapter(mdata, this);
+        adapter = new AutoCompleteTextAdapter(mList, this);
         //为自动完成文本框设置适配器
         binding.actv.setAdapter(adapter);
         binding.actv.setOnClickListener(new OnAntiShakeClickListener() {
             @Override
             public void onAntiShakeClick(View view) {
                 AppCompatAutoCompleteTextView v = (AppCompatAutoCompleteTextView) view;
-                if (!Util.isEmpty(mdata)) {
+                if (!Util.isEmpty(mList)) {
                     v.showDropDown();
                 }
             }
@@ -64,6 +71,9 @@ public class HighlightSearchActivity extends AppCompatActivity {
             if (hasFocus) {
                 binding.actv.showDropDown();
             }
+        });
+        binding.actv.setOnItemClickListener((parent, view, position, id) -> {
+           binding.actv.setText(adapter.getItem(position).getName());
         });
 
         LiveDataBus.get().with(EventType.CLOSE_DIALOG, Boolean.class).observe(this, isClose -> {
@@ -77,6 +87,17 @@ public class HighlightSearchActivity extends AppCompatActivity {
                 // setAlwaysVisible(getListPopupWindow(binding.receiver));
             }
         });
+    }
+
+    private void initData() {
+        mList.add(new OilStationBean("石化邹城","邹城北"));
+        mList.add(new OilStationBean("石化邹城1","邹城南"));
+        mList.add(new OilStationBean("石化邹城2","邹城东"));
+        mList.add(new OilStationBean("石化邹城3","邹城西"));
+        mList.add(new OilStationBean("石化济宁","济宁北"));
+        mList.add(new OilStationBean("石化济宁1","济宁南"));
+        mList.add(new OilStationBean("石化济宁2","济宁西"));
+        mList.add(new OilStationBean("石化济宁3","济宁东"));
     }
 
 
