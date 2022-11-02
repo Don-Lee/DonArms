@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
+import java.util.List;
+
 /**
  * Date 2021/10/13
  *
@@ -23,5 +25,9 @@ public class Util {
 
     public static boolean isEmpty(Object[] array) {
         return array == null || array.length < 1;
+    }
+
+    public static <T> boolean isEmpty(List<T> list) {
+        return list == null || list.size() < 1;
     }
 }
