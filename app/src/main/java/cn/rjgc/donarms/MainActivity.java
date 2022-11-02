@@ -16,6 +16,7 @@ import cn.rjgc.donarms.databinding.ActivityMainBinding;
 import cn.rjgc.donarms.util.EventType;
 import cn.rjgc.donarms.view.HighlightSearchActivity;
 import cn.rjgc.donarms.view.KeyboardListenerActivity;
+import cn.rjgc.donarms.view.ThreadActivity;
 
 /**
  * @author Don
@@ -71,34 +72,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btnThreadView.setOnClickListener(view -> {
-            for (int i = 0; i < 10; i++) {
-                //可感知生命周期
-                AppThreadExecutors.getInstance().getSingleThread().execute(new LifecycleRunnable(getLifecycle()) {
-                    @Override
-                    public void lifecycleRun() {
-                        Log.e("TAG", "run: " + Thread.currentThread().getName());
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-
-                //不可感知生命周期
-                AppThreadExecutors.getInstance().getSingleThread().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("TAG1", "run: " + Thread.currentThread().getName());
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-
+            Intent intent = new Intent(MainActivity.this, ThreadActivity.class);
+            startActivity(intent);
         });
     }
 

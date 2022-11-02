@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonArms">
         <activity
+            android:name=".view.ThreadActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".view.HighlightSearchActivity"
             android:exported="false" />
         <activity

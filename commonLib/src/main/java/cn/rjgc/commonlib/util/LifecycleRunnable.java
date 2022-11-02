@@ -9,28 +9,27 @@ import androidx.lifecycle.OnLifecycleEvent;
  * 可感知生命周期的Runnable
  */
 public abstract class LifecycleRunnable implements Runnable, LifecycleObserver {
-    private boolean isStop;
+    private Lifecycle mLifecycle;
+    private boolean isDestroy = false;
+
     public LifecycleRunnable(Lifecycle lifecycle) {
+        mLifecycle = lifecycle;
         // 添加生命周期观察者
-        lifecycle.addObserver(this);
+        mLifecycle.addObserver(this);
     }
 
     @Override
     public void run() {
-        if (!isStop) {
+        if (!isDestroy) {
             lifecycleRun();
         }
-    }
-
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    private void lifecycleStop() {
-        isStop = true;
+        mLifecycle.removeObserver(this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private void lifecycleDestroy() {
-        isStop = true;
+        isDestroy = true;
+        mLifecycle.removeObserver(this);
     }
 
     public void lifecycleRun() {
