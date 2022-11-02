@@ -2,17 +2,21 @@ package cn.rjgc.donarms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import cn.rjgc.commonlib.util.AppThreadExecutors;
+import cn.rjgc.commonlib.util.LifecycleRunnable;
 import cn.rjgc.commonlib.util.eventbus.LiveDataBus;
 import cn.rjgc.commonlib.util.shake.OnAntiShakeClickListener;
 import cn.rjgc.donarms.databinding.ActivityMainBinding;
 import cn.rjgc.donarms.util.EventType;
 import cn.rjgc.donarms.view.HighlightSearchActivity;
 import cn.rjgc.donarms.view.KeyboardListenerActivity;
+import cn.rjgc.donarms.view.ThreadActivity;
 
 /**
  * @author Don
@@ -65,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, HighlightSearchActivity.class);
                 startActivity(intent);
             }
+        });
+
+        binding.btnThreadView.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ThreadActivity.class);
+            startActivity(intent);
         });
     }
 
