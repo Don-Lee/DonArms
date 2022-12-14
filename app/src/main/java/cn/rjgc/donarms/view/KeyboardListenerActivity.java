@@ -84,7 +84,8 @@ public class KeyboardListenerActivity extends AppCompatActivity implements OnKey
         mTvResult = findViewById(R.id.tv_result);
 
         mLlRoot = findViewById(R.id.ll_root);
-        mLlRoot.getViewTreeObserver().addOnGlobalLayoutListener(new GlobalLayoutListener(mLlRoot, this));
+        mLlRoot.getViewTreeObserver().addOnGlobalLayoutListener(new GlobalLayoutListener(mLlRoot,
+                this));
     }
 
     private void initScreenParams() {
@@ -130,7 +131,8 @@ public class KeyboardListenerActivity extends AppCompatActivity implements OnKey
         } else if (Build.VERSION.SDK_INT >= 19) {
             Window _window = getWindow();
             WindowManager.LayoutParams params = _window.getAttributes();
-            params.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
+            params.systemUiVisibility =
+                    (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
             _window.setAttributes(params);
         }
     }
@@ -142,8 +144,10 @@ public class KeyboardListenerActivity extends AppCompatActivity implements OnKey
                 startActivityWithoutNavigationBar(this);
                 break;
             case R.id.btn_dismiss_keyboard:
-                InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager manager =
+                        (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (manager != null) {
+                    //强制隐藏软键盘
                     manager.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
                 break;
@@ -161,7 +165,7 @@ public class KeyboardListenerActivity extends AppCompatActivity implements OnKey
         switch (item.getItemId()) {
             case android.R.id.home:
                 //刷新MainActivity按钮的文案
-                LiveDataBus.get().with(EventType.REFRESH_TEXT,Boolean.class).postValue(true);
+                LiveDataBus.get().with(EventType.REFRESH_TEXT, Boolean.class).postValue(true);
                 finish();
         }
         return super.onOptionsItemSelected(item);

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initEvent();
 
-        LiveDataBus.get().with(EventType.REFRESH_TEXT,Boolean.class).observe(this, aBoolean -> {
+        LiveDataBus.get().with(EventType.REFRESH_TEXT, Boolean.class).observe(this, aBoolean -> {
             if (aBoolean) {
                 binding.btnEventBus.setText("文案已变化");
             }
